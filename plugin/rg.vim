@@ -7,7 +7,6 @@ else
   let s:base_dir = expand('<sfile>:h:h')
 endif
 
-echo s:base_dir
 if s:is_win
 	let $PATH=$PATH.";".s:base_dir."\\bin"
 else
