@@ -14,6 +14,12 @@ else
 	let $PATH=$PATH.":".s:base_dir."/bin"
 endif
 
+function! s:echo_info(msg) abort
+  echohl Function
+  echom 'Rg: '.a:msg
+  echohl NONE
+endfunction
+
 function! s:run_term(cmd, cwd, success_info) abort
   belowright 10new
   setlocal buftype=nofile winfixheight norelativenumber nonumber bufhidden=wipe
@@ -23,7 +29,7 @@ function! s:run_term(cmd, cwd, success_info) abort
   function! s:OnExit(status) closure abort
     if a:status == 0
       execute 'silent! bd! '.bufnr
-      call clap#helper#echo_info(a:success_info)
+      call s:echo_info(a:success_info)
     endif
   endfunction
 
