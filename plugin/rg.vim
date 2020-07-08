@@ -54,7 +54,7 @@ function rg#install() abort
 	if s:is_win
 		let cmd = 'Powershell.exe -ExecutionPolicy ByPass -File "'.s:base_dir.'\install.ps1"'
 	else
-		let cmd = './install.sh'
+		let cmd = 'sh ./install.sh'
 	endif
 	call s:run_term(cmd, s:base_dir, 'download the rg binary successfully')
 endfunction
